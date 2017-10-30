@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Js Try</title>
+    <style>
+        body{
+            background: #8bff28;
+        }
+        .panel{
+            width: 960px;
+            margin: 44px;
+            border: 1px solid red;
+            background: #fff936;
+        }
+        .panelTitle{
+            background: #54ffd6;
+            font-weight: bold;
+            padding: 9px;
+            color: #5b84ff;
+        }
+        .panelContent{
+            padding: 22px;
+            background: #985dff;
+            min-height: 111px;
+        }
+        .modal{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.5);
+        }
+        .modalContent{
+            width: 960px;
+            background: #ff583d;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 99px;
+        }
+        .modalHeader{
+            background: #c2ffdb;
+            font-weight: bold;
+            padding: 16px 9px;
+            color: #3c46ff;
+        }
+        .modalBody{
+            padding: 22px;
+            background: #ff44f5;
+            min-height: 222px;
+        }
+        .modalFooter{
+            background: #ff583d;
+            font-weight: bold;
+            padding: 9px;
+            color: #985dff;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div class="panel">
+        <div class="panelTitle">
+            titel ho
+        </div>
+        <div class="panelContent">
+            content ha
+        </div>
+    </div>
+    <shadhin titel ='this title new1' content="'contents new1'">
+        <h1> this is slot</h1>
+        <input type="text">
+        <button> this is slot</button>
+    </shadhin>
+    
+    <shadhin titel ='this title new2' content="'contents new2'"></shadhin>
+    <shadhin titel ='this title new3' content="'contents new3'"></shadhin>
+ </div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+ Vue.component('shadhin',{
+     template:`
+       <div v-if="show" class="panel">
+        <div class="panelTitle">
+        <div> <button @click="show=false" >X</button> </div>
+           {{titel}}
+        </div>
+        <div style="background: #ff583d">
+           {{content}}
+        </div>
+        <div> <slot></slot> </div>
+    </div>
+     `,
+     props:['titel','content'],
+     data:function () {
+         return{
+             show:true,
+         }
+     }
+ });
+    var app = new Vue({
+        el:'#root',
+    });
+
+
+</script>
+</body>
+</html>

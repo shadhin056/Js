@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Js Try</title>
+</head>
+<body>
+<div id="root">
+    <ui>
+        <li v-for="(message,i) in message1">
+            {{message}} <button @click="RemoveNewItem(i)">X</button>
+        </li>
+
+    </ui>
+    <input type="text" v-model="newInputField">
+    <button v-on:click="addNewItem">add</button>
+    </div>
+
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#root',
+            data: {
+                newInputField:'',
+                message1: ['1', '2', '3', '4', '5', '6',]
+            },
+            methods:{
+                addNewItem:function(){
+                    this.message1.push(this.newInputField)
+                    alert('ading');
+                    this.newInputField='';
+                },RemoveNewItem:function(i){
+                    this.message1.splice(i,1)
+                    alert('remove');
+
+                }
+            }
+
+        });
+
+
+    </script>
+</body>
+</html>

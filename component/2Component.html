@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+</head>
+<body>
+<div id="root" class="container">
+    <br>
+    <btn @button_clicked="lauchModal"></btn>
+    <modal @close_modal="close"  :active="acivatedValue"></modal>
+
+
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+
+    Vue.component('btn', {
+        template: `
+        <a @click="lunch"  class="button is-dark"> launch modal </a>
+     `,methods:{
+            lunch(){
+                this.$emit('button_clicked');
+            }
+
+        }
+
+    });
+
+    Vue.component('modal', {
+        template: `
+        <div class="modal" :class='active'>
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal title</p>
+                <button  @click="closeModal" class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+
+            </section>
+            <footer class="modal-card-foot">
+            <button class="button is-success">Save changes</button>
+            <button class="button">Cancel</button>
+            </footer>
+            </div>
+            </div>
+     `,
+        props:[
+            'active'
+        ],
+        methods:{
+            closeModal(){
+                this.$emit('close_modal');
+            }
+        }
+
+    });
+
+    var app = new Vue({
+        el: '#root',
+        data: {
+            acivatedValue:''
+        },
+        methods:{
+            lauchModal(){
+                this.acivatedValue='is-active';
+
+            },close(){
+                this.acivatedValue='';
+            }
+
+        }
+    });
+
+
+</script>
+</body>
+</html>

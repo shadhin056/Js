@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Js Try</title>
+    <style>
+        .active{
+            background: red;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+   <a :class="className" :href="link1.url" :title="link1.title">{{link1.text}}</a>
+   <br><a :href="link2.url" :title="link2.title">{{link2.text}}</a>
+    <br><a :class="{'active':activeLink =='link1'}" :href="link1.url" :title="link1.title">{{link1.text}}</a>
+    <br><a :class="{'active':activeLink =='link2'}":href="link2.url" :title="link2.title">{{link2.text}}</a>
+    <br>
+    <p>
+        {{html}}
+    </p>
+    <p v-html="html">
+
+    </p>
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#root',
+        data:{
+        link1:{
+          text:'fb.com',title:'Go to Facebook',url:'http://facebook.com'
+        },link2:{
+          text:'youtube.com',title:'Go to youtube',url:'http://youtube.com'
+        },
+        className:'active',
+        activeLink:'link1',
+        html:'<a href="http://facebook.com"> about me</a>',
+        }
+
+
+    });
+
+
+</script>
+</body>
+</html>

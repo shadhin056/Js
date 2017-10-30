@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Js Try</title>
+</head>
+<body>
+<div id="root">
+    <ui>
+        <li v-for="message in message">
+            {{message}}
+        </li>
+    </ui>
+    <ui>
+        <li v-for="(b,i) in text" v-if="b.b>2">
+            {{i+1}}. {{b.a}}.'='.{{b.b}}
+        </li>
+    </ui>
+    <p v-if="show"> showing</p>
+    <p v-else> not showing</p>
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#root',
+        data: {
+            message: ['1', '2', '3', '4', '5', '6',],
+            text: [
+                {a: 'Html', b: '1'},
+                {a: 'Css', b: '2'},
+                {a: 'Php', b: '3'},
+                {a: 'java', b: '4'},
+                {a: 'Python', b: '5'},
+
+            ],
+            show:true,
+        }
+
+    });
+
+
+</script>
+</body>
+</html>

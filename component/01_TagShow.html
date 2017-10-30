@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Js Try</title>
+    <style>
+        body {
+            background: #8bff28;
+        }
+
+        .panel {
+            width: 960px;
+            margin: 44px;
+            border: 1px solid red;
+            background: #fff936;
+        }
+
+        .panelTitle {
+            background: #54ffd6;
+            font-weight: bold;
+            padding: 9px;
+            color: #5b84ff;
+        }
+
+        .panelContent {
+            padding: 22px;
+            background: #985dff;
+            min-height: 111px;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .modalContent {
+            width: 960px;
+            background: #ff583d;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 99px;
+        }
+
+        .modalHeader {
+            background: #c2ffdb;
+            font-weight: bold;
+            padding: 16px 9px;
+            color: #3c46ff;
+        }
+
+        .modalBody {
+            padding: 22px;
+            background: #ff44f5;
+            min-height: 222px;
+        }
+
+        .modalFooter {
+            background: #ff583d;
+            font-weight: bold;
+            padding: 9px;
+            color: #985dff;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <shadhin></shadhin>
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.component('shadhin', {
+        template: `
+       <div class="panel">
+        <div class="panelTitle"> This Is panel Titel</div>
+        <div class="panelContent"> This is panel Content</div>
+    </div>
+     `
+    });
+    var app = new Vue({
+        el: '#root',
+    });
+
+
+</script>
+</body>
+</html>
